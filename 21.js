@@ -7,27 +7,22 @@
 
 function planoDeSaude(idade) {
   const brl = valor => `R$ ${valor.toFixed(2)}`
+  let adicional = 0
 
-  if(idade < 10) {
-    console.log(`Idade: ${idade} - Total: ${brl(100 + 85)}`)
-  }
-  else if (idade >= 10 && idade <= 30) {
-    console.log(`Idade: ${idade} - Total: ${brl(100 + 50)}`)
-  }
-  else if (idade > 30 && idade <= 60) {
-    console.log(`Idade: ${idade} - Total: ${brl(100 + 95)}`)
-  }
-  else if (idade > 60) {
-    console.log(`Idade: ${idade} - Total: ${brl(100 + 130)}`)
-  }
-  else {
-    console.log('Idade inválida!')
-  }
+  if(idade < 10) adicional = 80
+  else if (idade >= 10 && idade <= 30) adicional = 50
+  else if (idade > 30 && idade <= 60) adicional = 95
+  else if (idade > 60) adicional = 130
+  else { console.log('Idade inválida!'); return }
+  
+  console.log(`Idade: ${idade} - Total: ${brl(100 + adicional)}`)
 }
 
 planoDeSaude(10)
 planoDeSaude(8)
 planoDeSaude(30)
+planoDeSaude(31)
 planoDeSaude(27)
 planoDeSaude(43)
 planoDeSaude(73)
+planoDeSaude("sss")
